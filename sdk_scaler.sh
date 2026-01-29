@@ -770,11 +770,8 @@ show_status() {
     
     status_info+="\n════════════════════════════════════════════════════════════\n"
     status_info+="СТАТУС:\n"
-    status_info+="  Instances: $running_instances/$INSTANCE_COUNT\n"
-    status_info+="  Healthy: $healthy_instances\n"
     status_info+="  Mode: $([ "$USE_GPU" = "1" ] && echo "GPU" || echo "CPU")\n"
     status_info+="  Load Balancer: $(docker ps --filter "name=nginx" 2>/dev/null | grep -q "nginx" && echo "АКТИВЕН" || echo "НЕАКТИВЕН")\n"
-    status_info+="  Configurator: $CONFIGURATOR_HOST:$CONFIGURATOR_PORT\n"
     
     show_message "СТАТУС СИСТЕМЫ" "$status_info"
 }
